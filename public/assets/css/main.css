@@ -3,9 +3,15 @@
   font-family: monospace;
   font-size: 14px;
 }
+h1 {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
 .NotesIndex {
   position: relative;
-  display: block;
+  display: table;
   width: 100%;
   padding: 0;
   margin-bottom: 150px;
@@ -53,41 +59,28 @@
   text-align: center;
 }
 .NotesIndex__Note {
-  position: relative;
-  border-bottom: 1px solid black;
-  padding: 10px 15px 5px 15px;
-  list-style: none;
+  display: table-row;
+  width: 100%;
+  height: 30px;
+  line-height: 20px;
+  vertical-align: middle;
 }
 .NotesIndex__Note:nth-child(even) {
   background: #ebebeb;
 }
-.NotesIndex__Note:last-of-type {
-  margin-bottom: 0;
-}
-.NotesIndex__Note:first-of-type {
-  border-top: 1px solid black;
+.NotesIndex__Note--head {
+  border-bottom: 1px solid black;
 }
 .NotesIndex__NoteShow {
   color: darkorange;
   font-weight: bolder;
 }
-.NotesIndex__NoteDate {
-  position: absolute;
-  right: 150px;
-}
 .NotesIndex__NoteProject {
-  position: absolute;
-  right: 300px;
   font-style: italic;
   color: #8959A8;
 }
 .NotesIndex__NoteLanguage {
-  position: absolute;
-  right: 500px;
   color: darkslategrey;
-}
-.NotesIndex__NoteMenu {
-  float: right;
 }
 .NotesIndex__NoteUpdate {
   color: blue;

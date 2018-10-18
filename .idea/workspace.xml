@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1fec24e-013c-44ce-a59a-7dc801d8ec3b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/notes/success.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notes/success.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/base/typography.less" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/base/typography.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/components/NotesIndex.less" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/components/NotesIndex.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/notes/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/notes/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,7 +24,7 @@
       <file leaf-file-name="NotesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/NotesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
+            <state relative-caret-position="280">
               <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
               <folding>
                 <element signature="e#35#55#0#PHP" expanded="true" />
@@ -41,11 +46,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="success.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="success.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/notes/success.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+            <state relative-caret-position="200">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/notes/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NotesIndex.less" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/components/NotesIndex.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="typography.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/base/typography.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -63,13 +95,14 @@
         <option value="$PROJECT_DIR$/src/Controller/NotesController.php" />
         <option value="$PROJECT_DIR$/src/Repository/NoteRepository.php" />
         <option value="$PROJECT_DIR$/templates/notes/index.project.html.twig" />
-        <option value="$PROJECT_DIR$/templates/notes/index.html.twig" />
-        <option value="$PROJECT_DIR$/public/assets/css/components/NotesIndex.less" />
         <option value="$PROJECT_DIR$/config/packages/twig.yaml" />
         <option value="$PROJECT_DIR$/templates/notes/show.html.twig" />
         <option value="$PROJECT_DIR$/templates/notes/delete.html.twig" />
         <option value="$PROJECT_DIR$/templates/notes/new.html.twig" />
         <option value="$PROJECT_DIR$/templates/notes/success.html.twig" />
+        <option value="$PROJECT_DIR$/public/assets/css/base/typography.less" />
+        <option value="$PROJECT_DIR$/templates/notes/index.html.twig" />
+        <option value="$PROJECT_DIR$/public/assets/css/components/NotesIndex.less" />
       </list>
     </option>
   </component>
@@ -204,6 +237,55 @@
             <path>
               <item name="symfony-programming-notes" type="b2602c69:ProjectViewProjectNode" />
               <item name="symfony-programming-notes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="symfony-programming-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony-programming-notes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="symfony-programming-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony-programming-notes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="symfony-programming-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony-programming-notes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="base" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="symfony-programming-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony-programming-notes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="symfony-programming-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony-programming-notes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="symfony-programming-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony-programming-notes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="symfony-programming-notes" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony-programming-notes" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -279,12 +361,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1539855196856</updated>
-      <workItem from="1539855198720" duration="2765000" />
+      <workItem from="1539855198720" duration="4192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2765000" />
+    <option name="totallyTimeSpent" value="4192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1045" extended-state="6" />
@@ -362,13 +444,6 @@
     <entry file="file://$PROJECT_DIR$/public/assets/js/vendor/prism.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/components/NotesIndex.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/twig.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -429,13 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/notes/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/notes/index.language.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -446,14 +514,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/NotesController.php">
+    <entry file="file://$PROJECT_DIR$/templates/notes/success.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-          <folding>
-            <element signature="e#35#55#0#PHP" expanded="true" />
-            <element signature="e#3962#3993#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="200">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/base/typography.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -467,10 +538,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/notes/success.html.twig">
+    <entry file="file://$PROJECT_DIR$/templates/notes/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
+        <state relative-caret-position="340">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/NotesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+          <folding>
+            <element signature="e#35#55#0#PHP" expanded="true" />
+            <element signature="e#3962#3993#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/components/NotesIndex.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="53" column="16" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
         </state>
       </provider>
     </entry>
