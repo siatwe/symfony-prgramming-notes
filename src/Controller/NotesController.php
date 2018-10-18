@@ -6,7 +6,6 @@ namespace App\Controller;
 use App\Entity\Note;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -69,6 +68,9 @@ class NotesController extends AbstractController
 
     /**
      * @Route("/notes/show/{id}", name="notes_show")
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function show($id)
     {
@@ -81,7 +83,6 @@ class NotesController extends AbstractController
 
     /**
      * @Route("/notes/index/{project?}", name="notes_index")
-     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -207,12 +208,12 @@ class NotesController extends AbstractController
             ->getForm()
         ;
 
-        $note->setEditDate(new \DateTime('now'));
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $note = $form->getData();
+            $note->setEditDate(new \DateTime('now'));
 
             $enitiyManager = $this->getDoctrine()->getManager();
             $enitiyManager->persist($note);
