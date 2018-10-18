@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Notes{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/css/main.css">
+    {% endblock %}
+</head>
+<body>
+{% block body %}
+    {% block index %}
+        <div class="container">
+            <ul class="NotesIndex">
+                {% block heading %}<h1>notes index</h1>{% endblock %}
+                {% block back %}{% endblock %}
+                {% block notes %}
+                    {% block search %}
+                        <div class="NotesIndex__Search">
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            {{ form_end(form) }}
+                        </div>
+                    {% endblock %}
+                    {% for note in notes %}
+                        <li class="NotesIndex__Note">
+                            <a class="NotesIndex__NoteShow"
+                               href="{{ path('notes_show', {'id': note.id}) }}">
+                                {{ note.title }}
+                            </a>
+                            <a class="NotesIndex__NoteLanguage"
+                               href="{{ path('notes_language_index', {'language': note.language}) }}">{{ note.language }}</a>
+                            <a href="{{ path('notes_project_index', {'project': note.project}) }}"
+                               class="NotesIndex__NoteProject">{{ note.project }}</a>
+                            <a href="{{ path('notes_date_index', {'date': note.date | date("Y-m-d")}) }}"
+                               class="NotesIndex__NoteDate">{{ note.date | date("d.m.Y") }}</a>
+                            <div class="NotesIndex__NoteMenu">
+                                <a class="NotesIndex__NoteUpdate"
+                                   href="{{ path('notes_update', {'id': note.id}) }}">edit</a> /
+                                <a class="NotesIndex__NoteDelete"
+                                   href="{{ path('notes_delete', {'id': note.id}) }}">delete</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endblock %}
+            </ul>
+        </div>
+    {% endblock %}
+{% endblock %}
+<a class="NotesIndex__NewButton"
+   href="{{ path('notes_new') }}">+</a>
+{% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="/assets/js/vendor/prism.js"></script>
+{% endblock %}
+</body>
+</html>

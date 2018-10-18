@@ -1,0 +1,36 @@
+version: '2'
+
+services:
+  fpm:
+    build: ./docker/dev/fpm
+    image: coajaxial/sf4-php-fpm
+    volumes:
+      - ./:/opt/project
+
+  web:
+    build: ./docker/dev/web
+    image: coajaxial/sf4-nginx-proxy
+    volumes:
+      - ./public:/opt/project
+    ports:
+      - "8000:80"
+    depends_on:
+      - "fpm"
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  elasticsearch:
+    image: elasticsearch:5
+    environment:
+      discovery.type: single-node
+  pma:
+    image: phpmyadmin/phpmyadmin:4.8.0
+    ports:
+      - "8001:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD:

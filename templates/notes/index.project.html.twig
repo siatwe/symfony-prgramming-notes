@@ -1,0 +1,10 @@
+{% extends 'notes/index.html.twig' %}
+{% block title %}Notes: Project{% endblock %}
+{% block heading %}
+    <h1>notes index by project: {{ project }}</h1>
+{% endblock %}
+{% block back %}
+    <a class="NotesIndex__BackButton"
+       href="{{ path('notes_index') }}">back</a>
+{% endblock %}
+{% block search %}{% endblock %}

@@ -1,0 +1,85 @@
+.NotesIndex {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 150px;
+}
+.NotesIndex h1 {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+.NotesIndex__NewButton {
+  position: fixed;
+  bottom: 100px;
+  right: 250px;
+  background-color: green;
+  color: white;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  line-height: 70px;
+  font-size: 35px;
+  font-weight: bolder;
+  border-radius: 100%;
+  border: 2px solid green;
+  transition: all 300ms;
+}
+.NotesIndex__NewButton:hover,
+.NotesIndex__NewButton:focus,
+.NotesIndex__NewButton:active {
+  background-color: white;
+  color: green;
+  text-decoration: none;
+}
+.NotesIndex__BackButton {
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+}
+.NotesIndex__Note {
+  position: relative;
+  border-bottom: 1px solid black;
+  padding: 10px 15px 5px 15px;
+  list-style: none;
+}
+.NotesIndex__Note:nth-child(even) {
+  background: #ebebeb;
+}
+.NotesIndex__Note:last-of-type {
+  margin-bottom: 0;
+}
+.NotesIndex__Note:first-of-type {
+  border-top: 1px solid black;
+}
+.NotesIndex__NoteShow {
+  color: darkorange;
+  font-weight: bolder;
+}
+.NotesIndex__NoteDate {
+  position: absolute;
+  right: 150px;
+}
+.NotesIndex__NoteAuthor {
+  position: absolute;
+  right: 300px;
+  font-style: italic;
+  color: #8959A8;
+}
+.NotesIndex__NoteLanguage {
+  position: absolute;
+  right: 500px;
+  color: darkslategrey;
+}
+.NotesIndex__NoteMenu {
+  float: right;
+}
+.NotesIndex__NoteUpdate {
+  color: blue;
+}
+.NotesIndex__NoteDelete {
+  color: red;
+}
+/*# sourceMappingURL=NotesIndex.css.map */

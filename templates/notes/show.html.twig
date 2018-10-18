@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}Furzkissen{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>{{ note.title }}</h1>
+        <h2>{{ note.project }}</h2>
+        <h3>{{ note.date | date("m.d.Y") }}</h3>
+        <p>{{ note.language }}</p>
+        <pre><code class="line-numbers language-{{ note.language }}">{{ note.content }}</code></pre>
+        <p>{{ note.comment }}</p>
+        <br>
+        <br>
+        <a href="{{ path('notes_index') }}">back</a>
+        <a href="{{ path('notes_update', {'id': note.id}) }}">edit</a>
+        <a href="{{ path('notes_delete', {'id': note.id}) }}">delete</a>
+    </div>
+{% endblock %}
