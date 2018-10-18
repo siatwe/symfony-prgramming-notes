@@ -5,6 +5,7 @@
         <h1>Success</h1>
         The following note with id: {{ note.id }} was saved!
         <a href="{{ path('notes_new') }}">new</a>
+        <a href="{{ path('notes_show', {id: note.id}) }}">back</a>
         <a href="{{ path('notes_index') }}">index</a>
     </div>
 {% endblock %}
