@@ -50,6 +50,7 @@ class Note
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Blank()
      */
     private $comment;
 

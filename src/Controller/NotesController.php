@@ -70,7 +70,7 @@ class NotesController extends AbstractController
     public function show($id)
     {
         $notesRepository = $this->getDoctrine()->getRepository(Note::class);
-        $note = $notesRepository->find($id);
+        $note            = $notesRepository->find($id);
 
         return $this->render('notes/show.html.twig', ['note' => $note]);
     }
@@ -89,7 +89,7 @@ class NotesController extends AbstractController
 
         $searchForm = $this->createFormBuilder()
             ->add('search_field', TextType::class, ['label' => false])
-            ->add('search', SubmitType::class, ['label' => 'search'])
+            ->add('search', SubmitType::class, ['label' => 'search', 'attr' => ['class' => 'Button Button--search']])
             ->getForm()
         ;
 
@@ -132,7 +132,7 @@ class NotesController extends AbstractController
 
         return $this->render(
             'notes/index.project.html.twig', [
-                'notes'  => $notes,
+                'notes'   => $notes,
                 'project' => $project,
             ]
         );
@@ -233,7 +233,7 @@ class NotesController extends AbstractController
         $note            = $notesRepository->find($id);
 
         $form = $this->createFormBuilder()
-            ->add('delete', SubmitType::class, ['label' => 'delete'])
+            ->add('delete', SubmitType::class, ['label' => 'delete', 'attr' => ['class' => 'Button Button--danger']])
             ->getForm()
         ;
 
