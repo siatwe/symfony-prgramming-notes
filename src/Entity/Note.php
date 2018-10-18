@@ -29,6 +29,10 @@ class Note
      */
     private $date;
 
+    /**
+     * @var @ORM\Column(type="date", nullable=true)
+     */
+    private $editDate;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,7 +54,6 @@ class Note
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\Blank()
      */
     private $comment;
 
@@ -152,6 +155,24 @@ class Note
     public function setDate($date): void
     {
         $this->date = $date;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getEditDate()
+    {
+        return $this->editDate;
+    }
+
+
+    /**
+     * @param mixed $editDate
+     */
+    public function setEditDate($editDate): void
+    {
+        $this->editDate = $editDate;
     }
 
 }

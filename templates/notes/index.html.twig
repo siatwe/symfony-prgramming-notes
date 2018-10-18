@@ -14,7 +14,7 @@
 <body>
 {% block body %}
     {% block index %}
-        <div class="container">
+        <div class="container-fluid">
             {% block heading %}<h1>notes index</h1>{% endblock %}
             <table class="NotesIndex">
                 {% block back %}{% endblock %}
@@ -30,8 +30,9 @@
                         <th>Title</th>
                         <th>Language</th>
                         <th>Project</th>
-                        <th>Date</th>
-                        <th>Menu</th>
+                        <th>Date: Created</th>
+                        <th>Date: Edited</th>
+                        <th></th>
                     </tr>
                     {% for note in notes %}
                         <tr class="NotesIndex__Note">
@@ -53,6 +54,9 @@
                                 <a href="{{ path('notes_date_index', {'date': note.date | date("Y-m-d")}) }}"
                                    class="NotesIndex__NoteDate">{{ note.date | date("d.m.Y") }}</a>
                             </td>
+                            <td>
+                                <a href="{{ path('notes_date_index', {'date': note.editDate | date("Y-m-d")}) }}"
+                                   class="NotesIndex__NoteDate">{{ note.editDate | date("d.m.Y") }}</a></td>
                             <td>
                                 <div class="NotesIndex__NoteMenu">
                                     <a class="NotesIndex__NoteUpdate"
