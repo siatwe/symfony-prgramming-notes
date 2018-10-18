@@ -3,9 +3,14 @@
   font-family: monospace;
   font-size: 14px;
 }
-h1 {
+h1,
+h2,
+h3 {
   display: block;
   text-align: center;
+}
+h1 {
+  font-size: 35px;
   margin-top: 30px;
   margin-bottom: 60px;
 }
@@ -75,6 +80,9 @@ h1 {
   color: darkorange;
   font-weight: bolder;
 }
+.NotesIndex__NoteDate {
+  color: #659e79;
+}
 .NotesIndex__NoteProject {
   font-style: italic;
   color: #8959A8;
@@ -87,5 +95,44 @@ h1 {
 }
 .NotesIndex__NoteDelete {
   color: red;
+}
+.NoteShow__Title {
+  color: darkorange;
+}
+.NoteShow__Project,
+.NoteShow__Date,
+.NoteShow__Language {
+  display: block;
+  text-align: center;
+}
+.NoteShow__Project {
+  color: #8959A8;
+  font-size: 30px;
+}
+.NoteShow__Language {
+  font-size: 27px;
+  color: darkslategrey;
+}
+.NoteShow__Date {
+  color: #659e79;
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+.NoteShow__Menu {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+.NoteShow__MenuBack {
+  color: black;
+}
+.NoteShow__MenuEdit {
+  color: blue;
+}
+.NoteShow__MenuDelete {
+  color: red;
+}
+.NoteShow__Content {
+  margin: 30px 0;
 }
 /*# sourceMappingURL=main.css.map */

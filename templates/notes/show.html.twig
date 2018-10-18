@@ -1,17 +1,32 @@
 {% extends 'base.html.twig' %}
 {% block title %}Furzkissen{% endblock %}
 {% block body %}
-    <div class="container">
-        <h1>{{ note.title }}</h1>
-        <h2>{{ note.project }}</h2>
-        <h3>{{ note.date | date("m.d.Y") }}</h3>
-        <p>{{ note.language }}</p>
-        <pre><code class="line-numbers language-{{ note.language }}">{{ note.content }}</code></pre>
-        <p>{{ note.comment }}</p>
-        <br>
-        <br>
-        <a href="{{ path('notes_index') }}">back</a>
-        <a href="{{ path('notes_update', {'id': note.id}) }}">edit</a>
-        <a href="{{ path('notes_delete', {'id': note.id}) }}">delete</a>
+    <div class="NoteShow">
+        <div class="container">
+            <h1 class="NoteShow__Title">{{ note.title }}</h1>
+            <a href="{{ path('notes_project_index', {'project': note.project}) }}"
+               class="NoteShow__Project">{{ note.project }}</a>
+            <a href="{{ path('notes_language_index', {'language': note.language}) }}"
+               class="NoteShow__Language">{{ note.language }}</a>
+            <a href="{{ path('notes_date_index', {'date': note.date | date("Y-m-d")}) }}"
+               class="NoteShow__Date">{{ note.date | date("m.d.Y") }}</a>
+            <div class="NoteShow__Menu">
+                <a class="NoteShow__MenuBack" href="{{ path('notes_index') }}">back</a> /
+                <a class="NoteShow__MenuEdit" href="{{ path('notes_update', {'id': note.id}) }}">edit</a> /
+                <a class="NoteShow__MenuDelete" href="{{ path('notes_delete', {'id': note.id}) }}">delete</a>
+            </div>
+            {% if note.content %}
+                <div class="NoteShow__Content">
+                    <h4>Code</h4>
+                    <pre><code class="line-numbers language-{{ note.language }}">{{ note.content }}</code></pre>
+                </div>
+            {% endif %}
+            {% if note.comment %}
+                <div class="NoteShow__Comment">
+                    <h4>Comment</h4>
+                    <p>{{ note.comment }}</p>
+                </div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}

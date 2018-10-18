@@ -70,7 +70,6 @@ class NotesController extends AbstractController
     public function show($id)
     {
         $notesRepository = $this->getDoctrine()->getRepository(Note::class);
-
         $note = $notesRepository->find($id);
 
         return $this->render('notes/show.html.twig', ['note' => $note]);
