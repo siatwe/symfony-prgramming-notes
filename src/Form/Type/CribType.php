@@ -14,6 +14,7 @@ class CribType extends AbstractType
     {
         $builder
             ->add('title')
+            ->add('project')
             ->add('date')
             ->add('editDate')
             ->add('submit', SubmitType::class, ['label' => 'save'])

@@ -1,7 +1,11 @@
 {% extends 'base.html.twig' %}
+{% block title %}cribs{% endblock %}
 {% block body %}
+    {% block heading %}<h1>New</h1>{% endblock %}
+    <a href="{{ path('index') }}">back</a>
     {{ form_start(form) }}
     {{ form_row(form.title) }}
+    {{ form_row(form.project) }}
     {{ form_row(form.date) }}
     {{ form_row(form.editDate) }}
 
@@ -14,5 +18,4 @@
         {% endfor %}
     </ul>
     {{ form_end(form) }}
-
 {% endblock %}

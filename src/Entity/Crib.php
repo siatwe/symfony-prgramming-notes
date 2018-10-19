@@ -23,6 +23,11 @@ class Crib
     private $title;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $project;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $date;
@@ -59,6 +64,20 @@ class Crib
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+
+    public function getProject()
+    {
+        return $this->project;
+    }
+
+
+    public function setProject(string $project): self
+    {
+        $this->project = $project;
 
         return $this;
     }

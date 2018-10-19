@@ -1,7 +1,30 @@
 {% extends 'base.html.twig' %}
+{% block title %}cribs{% endblock %}
 {% block body %}
-    <h1>cribs index</h1>
-    {% for crib in cribs %}
-        <a href="{{ path('show', {'id': crib.id}) }}">{{ crib.title }}</a>
-    {% endfor %}
+    <h1>cribs</h1>
+    <a href="{{ path('new') }}" class="Button Button--new">new</a>
+    <table class="CribIndex">
+        <tr class="CribIndex__Header">
+            <th>Title</th>
+            <th>Project</th>
+            <th>Date: Created</th>
+            <th>Date: Edited</th>
+        </tr>
+        {% for crib in cribs %}
+            <tr>
+                <td>
+                    <a href="{{ path('show', {'id': crib.id}) }}">{{ crib.title }}</a>
+                </td>
+                <td>
+                    {{ crib.project }}
+                </td>
+                <td>
+                    {{ crib.date | date("m.d.Y") }}
+                </td>
+                <td>
+                    {{ crib.editDate | date("m.d.Y") }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

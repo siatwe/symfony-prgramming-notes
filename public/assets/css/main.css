@@ -15,132 +15,37 @@ h1 {
   margin-top: 30px;
   margin-bottom: 60px;
 }
-.NotesIndex {
-  position: relative;
+.CribIndex {
   display: table;
   width: 100%;
-  padding: 0;
-  margin-bottom: 150px;
 }
-.NotesIndex h1 {
-  display: block;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 60px;
-}
-.NotesIndex__Search {
-  display: block;
-  margin: 0 auto 50px auto;
-  text-align: center;
-}
-.NotesIndex__Search .form-group {
-  display: inline-block;
-}
-.NotesIndex__Search .form-group input {
-  border-radius: 0;
-}
-.NotesIndex__NewButton {
-  position: fixed;
-  bottom: 100px;
-  right: 250px;
-  background-color: green;
-  color: white;
-  width: 75px;
-  height: 75px;
-  text-align: center;
-  line-height: 70px;
-  font-size: 35px;
-  font-weight: bolder;
-  border-radius: 100%;
-  border: 2px solid green;
-  transition: all 300ms;
-}
-.NotesIndex__NewButton:hover,
-.NotesIndex__NewButton:focus,
-.NotesIndex__NewButton:active {
-  background-color: white;
-  color: green;
-  text-decoration: none;
-}
-.NotesIndex__BackButton {
-  display: block;
-  margin: 30px auto;
-  text-align: center;
-}
-.NotesIndex__Note {
-  display: table-row;
-  width: 100%;
-  height: 30px;
-  line-height: 20px;
-  vertical-align: middle;
-}
-.NotesIndex__Note:nth-child(even) {
+.CribIndex tr:nth-child(even) {
   background: #ebebeb;
 }
-.NotesIndex__Note--head {
+.CribIndex__Header {
   border-bottom: 1px solid black;
 }
-.NotesIndex__NoteShow {
-  color: darkorange;
-  font-weight: bolder;
-}
-.NotesIndex__NoteDate {
-  color: #659e79;
-}
-.NotesIndex__NoteProject {
-  font-style: italic;
-  color: #8959A8;
-}
-.NotesIndex__NoteLanguage {
-  color: darkslategrey;
-}
-.NotesIndex__NoteUpdate {
-  color: blue;
-}
-.NotesIndex__NoteDelete {
-  color: red;
-}
-.NoteShow__Title {
-  color: darkorange;
-}
-.NoteShow__Project,
-.NoteShow__Date,
-.NoteShow__Language {
-  display: block;
-  text-align: center;
-}
-.NoteShow__Project {
-  color: #8959A8;
-  font-size: 30px;
-}
-.NoteShow__Language {
-  font-size: 27px;
-  color: darkslategrey;
-}
-.NoteShow__Date {
-  color: #659e79;
-  font-size: 25px;
-  margin-bottom: 30px;
-}
-.NoteShow__Menu {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-.NoteShow__MenuBack {
-  color: black;
-}
-.NoteShow__MenuEdit {
-  color: blue;
-}
-.NoteShow__MenuDelete {
-  color: red;
-}
-.NoteShow__Content {
-  margin: 30px 0;
-}
 .Button {
+  display: inline-block;
   border-radius: 0;
+}
+.Button--new {
+  position: fixed;
+  bottom: 150px;
+  right: 150px;
+  color: white;
+  background-color: green;
+  padding: 22px;
+  border-radius: 100%;
+  border: 3px solid green;
+  transition: all 300ms;
+}
+.Button--new:hover,
+.Button--new:focus,
+.Button--new:active {
+  color: green;
+  background-color: white;
+  text-decoration: none;
 }
 .Button--search {
   color: white;

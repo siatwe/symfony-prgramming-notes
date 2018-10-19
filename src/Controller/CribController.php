@@ -36,6 +36,8 @@ class CribController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($crib);
             $em->flush();
+
+            return $this->redirectToRoute('index');
         }
 
         return $this->render(
@@ -77,6 +79,7 @@ class CribController extends AbstractController
             ]
         );
     }
+
 
     /**
      * @Route("/", name="index")
