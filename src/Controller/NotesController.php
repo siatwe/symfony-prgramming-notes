@@ -68,6 +68,9 @@ class NotesController extends AbstractController
 
     /**
      * @Route("/notes/show/{id}", name="notes_show")
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function show($id)
     {
@@ -80,7 +83,6 @@ class NotesController extends AbstractController
 
     /**
      * @Route("/notes/index/{project?}", name="notes_index")
-     *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -206,12 +208,12 @@ class NotesController extends AbstractController
             ->getForm()
         ;
 
-        $note->setEditDate(new \DateTime('now'));
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $note = $form->getData();
+            $note->setEditDate(new \DateTime('now'));
 
             $enitiyManager = $this->getDoctrine()->getManager();
             $enitiyManager->persist($note);
