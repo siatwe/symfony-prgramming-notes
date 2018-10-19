@@ -78,7 +78,6 @@ class CribController extends AbstractController
         );
     }
 
-
     /**
      * @Route("/", name="index")
      *
