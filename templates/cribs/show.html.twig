@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="Crib">
+        <header class="Crib__Header">
+            {% block heading %}<h1>{{ crib.title }}</h1>{% endblock %}
+            <h2>created: {{ crib.date | date("m.d.Y") }}</h2>
+            <h3>created: {{ crib.date | date("m.d.Y") }}</h3>
+        </header>
+        <div class="Crib__Body">
+            <div class="Crib__BodyContent">
+                {% for cribContent in crib.cribContent %}
+                    <div class="Crib__BodyContentCode">
+                        <pre><code class="line-numbers language-{{ cribContent.language }}">{{ cribContent.code }}</code></pre>
+                    </div>
+                    <div class="Crib__BodyContentComment">
+                        <p>{{ cribContent.comment }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

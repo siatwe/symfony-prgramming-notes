@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>cribs index</h1>
+    {% for crib in cribs %}
+        <a href="{{ path('show', {'id': crib.id}) }}">{{ crib.title }}</a>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.date) }}
+    {{ form_row(form.editDate) }}
+
+    <h3>Content</h3>
+    <ul class="cribContents" data-prototype="{{ form_widget(form.cribContent.vars.prototype)|e('html_attr') }}">
+        {% for cribContent in form.cribContent %}
+            <li>{{ form_row(cribContent.language) }}</li>
+            <li>{{ form_row(cribContent.code) }}</li>
+            <li>{{ form_row(cribContent.comment) }}</li>
+        {% endfor %}
+    </ul>
+    {{ form_end(form) }}
+
+{% endblock %}
