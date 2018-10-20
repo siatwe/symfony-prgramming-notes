@@ -5,10 +5,10 @@
     <a href="{{ path('new') }}" class="Button Button--new">new</a>
     <table class="CribIndex">
         <tr class="CribIndex__Header">
-            <th>Title</th>
-            <th>Project</th>
-            <th>Date: Created</th>
-            <th>Date: Edited</th>
+            <th><a href="{{ path('index_order', {'orderField': 'title'}) }}">Title</a></th>
+            <th><a href="{{ path('index_order', {'orderField': 'project'}) }}">Project</a></th>
+            <th><a href="{{ path('index_order', {'orderField': 'date'}) }}">Date: Created</a></th>
+            <th><a href="{{ path('index_order', {'orderField': 'editDate'}) }}">Date: Edited</a></th>
         </tr>
         {% for crib in cribs %}
             <tr>
@@ -19,10 +19,12 @@
                     {{ crib.project }}
                 </td>
                 <td>
-                    {{ crib.date | date("m.d.Y") }}
+                    {{ crib.date | date("d.m.Y") }}
                 </td>
                 <td>
-                    {{ crib.editDate | date("m.d.Y") }}
+                    {% if crib.date != crib.editDate %}
+                        {{ crib.editDate | date("d.m.Y") }}
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}

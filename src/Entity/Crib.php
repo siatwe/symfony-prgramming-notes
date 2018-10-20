@@ -28,12 +28,12 @@ class Crib
     private $project;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $date;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $editDate;
 
@@ -46,6 +46,7 @@ class Crib
     public function __construct()
     {
         $this->cribContent = new ArrayCollection();
+        $this->date = new \DateTime('now');
     }
 
 

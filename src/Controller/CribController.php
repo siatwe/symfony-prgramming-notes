@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CribController extends AbstractController
 {
+
     /**
      * @Route("/new", name="new")
      * @param \Symfony\Component\HttpFoundation\Request $request
@@ -27,6 +28,7 @@ class CribController extends AbstractController
         $cribContent = new CribContent();
 
         $crib->addCribContent($cribContent);
+        $crib->setEditDate(new \DateTime('now'));
 
         $form = $this->createForm(CribType::class, $crib);
 
@@ -54,14 +56,17 @@ class CribController extends AbstractController
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      *
+     * @param \App\Entity\Crib                          $crib
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * Creates new crib.
      */
     public function edit(Request $request, Crib $crib)
     {
-
         $form = $this->createForm(CribType::class, $crib);
+
+        $crib->setEditDate(new \DateTime('now'));
 
         $form->handleRequest($request);
 
@@ -73,7 +78,7 @@ class CribController extends AbstractController
         }
 
         return $this->render(
-            'crib/new.html.twig',
+            'cribs/new.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -92,6 +97,26 @@ class CribController extends AbstractController
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
         $cribs          = $cribRepository->findBy([], ['date' => 'DESC']);
+
+        return $this->render(
+            'cribs/index.html.twig',
+            [
+                'cribs' => $cribs,
+            ]
+        );
+    }
+
+
+    /**
+     * @Route("/index/{orderField}", name="index_order")
+     * @param $orderField
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function indexByOrder($orderField)
+    {
+        $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
+        $cribs          = $cribRepository->findBy([], [$orderField => 'DESC']);
 
         return $this->render(
             'cribs/index.html.twig',

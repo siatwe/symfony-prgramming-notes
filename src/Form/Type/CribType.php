@@ -16,7 +16,6 @@ class CribType extends AbstractType
             ->add('title')
             ->add('project')
             ->add('date')
-            ->add('editDate')
             ->add('submit', SubmitType::class, ['label' => 'save'])
         ;
 
