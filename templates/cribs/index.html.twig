@@ -9,6 +9,7 @@
             <th><a href="{{ path('index_order', {'orderField': 'project'}) }}">Project</a></th>
             <th><a href="{{ path('index_order', {'orderField': 'date'}) }}">Date: Created</a></th>
             <th><a href="{{ path('index_order', {'orderField': 'editDate'}) }}">Date: Edited</a></th>
+            <th>Menu</th>
         </tr>
         {% for crib in cribs %}
             <tr>
@@ -25,6 +26,10 @@
                     {% if crib.date != crib.editDate %}
                         {{ crib.editDate | date("d.m.Y") }}
                     {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('edit', {'id': crib.id}) }}">edit</a>
+                    <a href="{{ path('delete', {'id': crib.id}) }}">delete</a>
                 </td>
             </tr>
         {% endfor %}

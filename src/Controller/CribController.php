@@ -116,7 +116,12 @@ class CribController extends AbstractController
     public function indexByOrder($orderField)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
-        $cribs          = $cribRepository->findBy([], [$orderField => 'DESC']);
+        $cribs          = $cribRepository->findBy(
+            [],
+            [
+                $orderField => $orderField == 'project' ? 'ASC' : 'DESC',
+            ]
+        );
 
         return $this->render(
             'cribs/index.html.twig',
@@ -144,5 +149,24 @@ class CribController extends AbstractController
                 'crib' => $crib,
             ]
         );
+    }
+
+
+    /**
+     * @Route("/delete/{id}", name="delete")
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function delete($id)
+    {
+        $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
+        $crib           = $cribRepository->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($crib);
+        $em->flush();
+
+        return $this->redirectToRoute('index');
     }
 }
