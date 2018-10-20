@@ -5,10 +5,34 @@
     <a href="{{ path('new') }}" class="Button Button--new">new</a>
     <table class="CribIndex">
         <tr class="CribIndex__Header">
-            <th><a href="{{ path('index_order', {'orderField': 'title'}) }}">Title</a></th>
-            <th><a href="{{ path('index_order', {'orderField': 'project'}) }}">Project</a></th>
-            <th><a href="{{ path('index_order', {'orderField': 'date'}) }}">Date: Created</a></th>
-            <th><a href="{{ path('index_order', {'orderField': 'editDate'}) }}">Date: Edited</a></th>
+            <th>
+                <a href="{{ path('index_order', {'orderField': 'title', 'direction': 'ASC'}) }}"><i
+                            class="fas fa-angle-double-down"></i></a>
+                Title
+                <a href="{{ path('index_order', {'orderField': 'title', 'direction': 'DESC'}) }}"><i
+                            class="fas fa-angle-double-up"></i></a>
+            </th>
+            <th>
+                <a href="{{ path('index_order', {'orderField': 'project', 'direction': 'ASC'}) }}"><i
+                            class="fas fa-angle-double-down"></i></a>
+                Project
+                <a href="{{ path('index_order', {'orderField': 'project', 'direction': 'DESC'}) }}"><i
+                            class="fas fa-angle-double-up"></i></a>
+            </th>
+            <th>
+                <a href="{{ path('index_order', {'orderField': 'date', 'direction': 'ASC'}) }}"><i
+                            class="fas fa-angle-double-down"></i></a>
+                Date: Created
+                <a href="{{ path('index_order', {'orderField': 'date', 'direction': 'DESC'}) }}"><i
+                            class="fas fa-angle-double-up"></i></a>
+            </th>
+            <th>
+                <a href="{{ path('index_order', {'orderField': 'editDate', 'direction': 'ASC'}) }}"><i
+                            class="fas fa-angle-double-down"></i></a>
+                Date: Edited
+                <a href="{{ path('index_order', {'orderField': 'editDate', 'direction': 'DESC'}) }}"><i
+                            class="fas fa-angle-double-up"></i></a>
+            </th>
             <th>Menu</th>
         </tr>
         {% for crib in cribs %}

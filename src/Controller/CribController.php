@@ -108,18 +108,20 @@ class CribController extends AbstractController
 
 
     /**
-     * @Route("/index/{orderField}", name="index_order")
+     * @Route("/index/{orderField}-{direction}", name="index_order")
      * @param $orderField
+     *
+     * @param $direction
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexByOrder($orderField)
+    public function indexByOrder($orderField, $direction)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
         $cribs          = $cribRepository->findBy(
             [],
             [
-                $orderField => $orderField == 'project' ? 'ASC' : 'DESC',
+                $orderField => $direction
             ]
         );
 
