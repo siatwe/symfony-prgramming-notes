@@ -87,41 +87,20 @@ class CribController extends AbstractController
 
 
     /**
-     * @Route("/", name="index")
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * The crips complete index.
-     */
-    public function index()
-    {
-        $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
-        $cribs          = $cribRepository->findBy([], ['date' => 'DESC']);
-
-        return $this->render(
-            'cribs/index.html.twig',
-            [
-                'cribs' => $cribs,
-            ]
-        );
-    }
-
-
-    /**
-     * @Route("/index/{orderField}-{direction}", name="index_order")
+     * @Route("/{orderField}-{direction}", name="index")
      * @param $orderField
      *
      * @param $direction
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexByOrder($orderField, $direction)
+    public function index($orderField = null, $direction = null)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
         $cribs          = $cribRepository->findBy(
             [],
             [
-                $orderField => $direction
+                $orderField ? $orderField : 'date' => $direction ? $direction : 'DESC',
             ]
         );
 
