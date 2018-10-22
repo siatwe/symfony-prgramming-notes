@@ -111,7 +111,7 @@ class CribController extends AbstractController
 
         if ($searchForm->isSubmitted()) {
             $searchString = $searchForm->getData()['searchField'];
-            $cribs = $cribRepository->findBySearchString($searchString);
+            $cribs        = $cribRepository->findBySearchString($searchString);
         } else {
             $cribs = $cribRepository->findBy(
                 [],
