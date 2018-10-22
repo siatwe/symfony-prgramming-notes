@@ -9,6 +9,7 @@ use App\Form\Type\CribType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class CribController extends AbstractController
 {
@@ -28,7 +29,6 @@ class CribController extends AbstractController
         $cribContent = new CribContent();
 
         $crib->addCribContent($cribContent);
-        $crib->setEditDate(new \DateTime('now'));
 
         $form = $this->createForm(CribType::class, $crib);
 

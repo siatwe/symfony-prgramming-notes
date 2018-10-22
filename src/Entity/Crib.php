@@ -28,17 +28,17 @@ class Crib
     private $project;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $editDate;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\CribContent", mappedBy="crib", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="App\Entity\CribContent", mappedBy="crib", cascade={"persist", "remove"})
      */
     private $cribContent;
 
@@ -46,7 +46,7 @@ class Crib
     public function __construct()
     {
         $this->cribContent = new ArrayCollection();
-        $this->date = new \DateTime('now');
+        $this->date        = new \DateTime('now');
     }
 
 
