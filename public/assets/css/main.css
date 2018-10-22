@@ -64,4 +64,21 @@ ul li {
   color: white;
   background-color: red;
 }
+.SearchForm {
+  display: block;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.SearchForm .form-group {
+  display: inline-block;
+}
+.SearchForm .form-group input {
+  border-radius: 0;
+}
+.SearchForm .form-group button {
+  border-radius: 0;
+}
+.Form textarea {
+  height: 300px;
+}
 /*# sourceMappingURL=main.css.map */

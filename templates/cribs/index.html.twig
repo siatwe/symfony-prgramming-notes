@@ -2,11 +2,11 @@
 {% block title %}cribs{% endblock %}
 {% block body %}
     <a href="{{ path('index') }}"><h1>cribs</h1></a>
-
-    {{ form_start(searchForm) }}
-    {{ form_widget(searchForm) }}
-    {{ form_end(searchForm) }}
-
+    <div class="SearchForm">
+        {{ form_start(searchForm) }}
+        {{ form_widget(searchForm) }}
+        {{ form_end(searchForm) }}
+    </div>
     <a href="{{ path('new') }}" class="Button Button--new">new</a>
     <table class="CribIndex">
         <tr class="CribIndex__Header">
