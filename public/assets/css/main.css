@@ -31,6 +31,9 @@ ul li {
 .CribIndex__Header {
   border-bottom: 1px solid black;
 }
+.CribIndex__Menu {
+  text-align: right;
+}
 .Button {
   display: inline-block;
   border-radius: 0;

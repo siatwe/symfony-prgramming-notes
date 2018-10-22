@@ -7,9 +7,10 @@ use App\Entity\Crib;
 use App\Entity\CribContent;
 use App\Form\Type\CribType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class CribController extends AbstractController
 {
@@ -87,27 +88,44 @@ class CribController extends AbstractController
 
 
     /**
-     * @Route("/{orderField}-{direction}", name="index")
-     * @param $orderField
+     * @Route("/{field}-{direction}", name="index")
+     * @param $field
      *
      * @param $direction
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index($orderField = null, $direction = null)
+    public function index($field = null, $direction = null, Request $request)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
-        $cribs          = $cribRepository->findBy(
-            [],
-            [
-                $orderField ? $orderField : 'date' => $direction ? $direction : 'DESC',
-            ]
-        );
+
+        $searchForm =
+            $this
+                ->createFormBuilder()
+                ->add('searchField', TextType::class, ['label' => false])
+                ->add('submit', SubmitType::class, ['label' => 'search'])
+                ->getForm()
+        ;
+
+        $searchForm->handleRequest($request);
+
+        if ($searchForm->isSubmitted()) {
+            $searchString = $searchForm->getData()['searchField'];
+            $cribs = $cribRepository->findBySearchString($searchString);
+        } else {
+            $cribs = $cribRepository->findBy(
+                [],
+                [
+                    $field ? $field : 'date' => $direction ? $direction : 'DESC',
+                ]
+            );
+        }
 
         return $this->render(
             'cribs/index.html.twig',
             [
-                'cribs' => $cribs,
+                'cribs'      => $cribs,
+                'searchForm' => $searchForm->createView(),
             ]
         );
     }

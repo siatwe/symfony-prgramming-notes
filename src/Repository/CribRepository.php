@@ -19,32 +19,30 @@ class CribRepository extends ServiceEntityRepository
         parent::__construct($registry, Crib::class);
     }
 
-//    /**
-//     * @return Crib[] Returns an array of Crib objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Crib
+    /**
+     * @param $searchString
+     *
+     * @return Crib[]
+     */
+    public function findBySearchString($searchString): array
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
+        $query = $this
+            ->createQueryBuilder('s')
+            ->orWhere('s.title like :searchString')
+            ->orWhere('s.project like :searchString')
+            ->orWhere('s.date like :searchString')
+            ->orWhere('s.editDate like :searchString')
+            ->innerJoin('s.cribContent', 'c')
+            ->addSelect('c')
+            ->orWhere('c.code like :searchString')
+            ->orWhere('c.comment like :searchString')
+            ->orWhere('c.language like :searchString')
+            ->setParameter('searchString', '%'.$searchString.'%')
+            ->orderBy('s.date', 'DESC')
             ->getQuery()
-            ->getOneOrNullResult()
         ;
+
+        return $query->execute();
     }
-    */
 }

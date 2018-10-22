@@ -1,39 +1,44 @@
 {% extends 'base.html.twig' %}
 {% block title %}cribs{% endblock %}
 {% block body %}
-    <h1>cribs</h1>
+    <a href="{{ path('index') }}"><h1>cribs</h1></a>
+
+    {{ form_start(searchForm) }}
+    {{ form_widget(searchForm) }}
+    {{ form_end(searchForm) }}
+
     <a href="{{ path('new') }}" class="Button Button--new">new</a>
     <table class="CribIndex">
         <tr class="CribIndex__Header">
             <th>
-                <a href="{{ path('index', {'orderField': 'title', 'direction': 'ASC'}) }}"><i
+                <a href="{{ path('index', {'field': 'title', 'direction': 'ASC'}) }}"><i
                             class="fas fa-angle-double-down"></i></a>
                 Title
-                <a href="{{ path('index', {'orderField': 'title', 'direction': 'DESC'}) }}"><i
+                <a href="{{ path('index', {'field': 'title', 'direction': 'DESC'}) }}"><i
                             class="fas fa-angle-double-up"></i></a>
             </th>
             <th>
-                <a href="{{ path('index', {'orderField': 'project', 'direction': 'ASC'}) }}"><i
+                <a href="{{ path('index', {'field': 'project', 'direction': 'ASC'}) }}"><i
                             class="fas fa-angle-double-down"></i></a>
                 Project
-                <a href="{{ path('index', {'orderField': 'project', 'direction': 'DESC'}) }}"><i
+                <a href="{{ path('index', {'field': 'project', 'direction': 'DESC'}) }}"><i
                             class="fas fa-angle-double-up"></i></a>
             </th>
             <th>
-                <a href="{{ path('index', {'orderField': 'date', 'direction': 'ASC'}) }}"><i
+                <a href="{{ path('index', {'field': 'date', 'direction': 'ASC'}) }}"><i
                             class="fas fa-angle-double-down"></i></a>
                 Date: Created
-                <a href="{{ path('index', {'orderField': 'date', 'direction': 'DESC'}) }}"><i
+                <a href="{{ path('index', {'field': 'date', 'direction': 'DESC'}) }}"><i
                             class="fas fa-angle-double-up"></i></a>
             </th>
             <th>
-                <a href="{{ path('index', {'orderField': 'editDate', 'direction': 'ASC'}) }}"><i
+                <a href="{{ path('index', {'field': 'editDate', 'direction': 'ASC'}) }}"><i
                             class="fas fa-angle-double-down"></i></a>
                 Date: Edited
-                <a href="{{ path('index', {'orderField': 'editDate', 'direction': 'DESC'}) }}"><i
+                <a href="{{ path('index', {'field': 'editDate', 'direction': 'DESC'}) }}"><i
                             class="fas fa-angle-double-up"></i></a>
             </th>
-            <th>Menu</th>
+            <th class="CribIndex__Menu">Menu</th>
         </tr>
         {% for crib in cribs %}
             <tr>
@@ -53,7 +58,8 @@
                         never
                     {% endif %}
                 </td>
-                <td>
+                <td class="CribIndex__Menu">
+                    <a href="{{ path('show', {'id': crib.id}) }}">show</a>
                     <a href="{{ path('edit', {'id': crib.id}) }}">edit</a>
                     <a href="{{ path('delete', {'id': crib.id}) }}">delete</a>
                 </td>
