@@ -26,6 +26,48 @@ class CribController extends AbstractController
 
 
     /**
+     * @Route("/index/{field}-{direction}", name="index")
+     * @param $field
+     * @param $direction
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function index($field = 'id', $direction = 'ASC', Request $request)
+    {
+        $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
+
+        $form =
+            $this
+                ->createFormBuilder()
+                ->add('searchField', TextType::class, ['label' => false])
+                ->add('submit', SubmitType::class, ['label' => 'search', 'attr' => ['class' => 'Link Link--edit']])
+                ->getForm()
+        ;
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $searchString = $form->getData()['searchField'];
+            $cribs        = $cribRepository->findBySearchString($searchString);
+        } else {
+            $cribs = $cribRepository->findBy(
+                [],
+                [
+                    $field => $direction,
+                ]
+            );
+        }
+
+        return $this->render(
+            'cribs/index.html.twig',
+            [
+                'cribs' => $cribs,
+                'form'  => $form->createView(),
+            ]
+        );
+    }
+
+
+    /**
      * @Route("/new", name="new")
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
@@ -42,7 +84,6 @@ class CribController extends AbstractController
         $crib->addCribContent($cribContent);
 
         $form = $this->createForm(CribType::class, $crib);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,10 +104,28 @@ class CribController extends AbstractController
 
 
     /**
+     * @Route("/show/{id}", name="show")
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function show($id)
+    {
+        $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
+        $crib           = $cribRepository->find($id);
+
+        return $this->render(
+            'cribs/show.html.twig',
+            [
+                'crib' => $crib,
+            ]
+        );
+    }
+
+
+    /**
      * @Route("/edit/{id}", name="edit")
      * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     *
      * @param \App\Entity\Crib                          $crib
      *
      * @return \Symfony\Component\HttpFoundation\Response
@@ -98,86 +157,40 @@ class CribController extends AbstractController
 
 
     /**
-     * @Route("/index/{field}-{direction}", name="index")
-     * @param $field
-     *
-     * @param $direction
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function index($field = 'id', $direction = 'ASC', Request $request)
-    {
-        $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
-
-        $searchForm =
-            $this
-                ->createFormBuilder()
-                ->add('searchField', TextType::class, ['label' => false])
-                ->add('submit', SubmitType::class, ['label' => 'search'])
-                ->getForm()
-        ;
-
-        $searchForm->handleRequest($request);
-
-        if ($searchForm->isSubmitted()) {
-            $searchString = $searchForm->getData()['searchField'];
-            $cribs        = $cribRepository->findBySearchString($searchString);
-        } else {
-            $cribs = $cribRepository->findBy(
-                [],
-                [
-                    $field => $direction,
-                ]
-            );
-        }
-
-        return $this->render(
-            'cribs/index.html.twig',
-            [
-                'cribs'      => $cribs,
-                'searchForm' => $searchForm->createView(),
-            ]
-        );
-    }
-
-
-    /**
-     * @Route("/show/{id}", name="show")
-     * @param $id
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function show($id)
-    {
-        $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
-        $crib           = $cribRepository->find($id);
-
-        return $this->render(
-            'cribs/show.html.twig',
-            [
-                'crib' => $crib,
-            ]
-        );
-    }
-
-
-    /**
      * @Route("/delete/{id}", name="delete")
      * @param $id
      *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\Response
      *
      * @IsGranted("ROLE_ADMIN")
      */
-    public function delete($id)
+    public function delete($id, Request $request)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
         $crib           = $cribRepository->find($id);
 
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($crib);
-        $em->flush();
+        $form = $this
+            ->createFormBuilder()
+            ->add('submit', SubmitType::class, ['label' => 'Delete', 'attr' => ['class' => 'Link Link--delete']])
+            ->getForm()
+        ;
 
-        return $this->redirectToRoute('index');
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($crib);
+            $em->flush();
+
+            return $this->redirectToRoute('index');
+        }
+
+        return $this->render(
+            'cribs/delete.html.twig',
+            [
+                'form' => $form->createView(),
+                'crib' => $crib,
+            ]
+        );
     }
 }

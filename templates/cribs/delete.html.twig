@@ -2,23 +2,14 @@
 {% block title %}cribs{% endblock %}
 {% block body %}
     {% block heading %}<h1>delete</h1>{% endblock %}
+    <a href="{{ path('index') }}" class="Link">back</a>
+    <h4>Do you really want to delete this crib?</h4>
+    <p>id: {{ crib.id }}</p>
+    <p>title: {{ crib.title }}</p>
+    <p>project: {{ crib.project }}</p>
     <div class="Form">
-        <a href="{{ path('index') }}">back</a>
         {{ form_start(form) }}
-        {{ form_row(form.title) }}
-        {{ form_row(form.project) }}
-        {{ form_row(form.date) }}
-
-        <h3>Content</h3>
-        <ul class="cribContents" data-prototype="{{ form_widget(form.cribContent.vars.prototype)|e('html_attr') }}">
-            {% for cribContent in form.cribContent %}
-                <li>
-                    {{ form_row(cribContent.language) }}
-                    {{ form_row(cribContent.comment) }}
-                    {{ form_row(cribContent.code) }}
-                </li>
-            {% endfor %}
-        </ul>
+        {{ form_widget(form) }}
         {{ form_end(form) }}
     </div>
 {% endblock %}

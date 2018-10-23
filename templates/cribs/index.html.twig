@@ -3,9 +3,9 @@
 {% block body %}
     <a href="{{ path('index') }}"><h1>cribs</h1></a>
     <div class="SearchForm">
-        {{ form_start(searchForm) }}
-        {{ form_widget(searchForm) }}
-        {{ form_end(searchForm) }}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
     </div>
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('new') }}" class="Button Button--new">new</a>

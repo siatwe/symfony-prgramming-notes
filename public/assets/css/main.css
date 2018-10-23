@@ -80,8 +80,9 @@ ul li {
 .SearchForm .form-group input {
   border-radius: 0;
 }
-.SearchForm .form-group button {
-  border-radius: 0;
+.SearchForm .form-group .Link {
+  margin: 0;
+  background-color: transparent;
 }
 .Form textarea {
   height: 300px;
@@ -90,6 +91,8 @@ ul li {
   display: block;
   text-align: center;
   margin-top: 50px;
+  background-color: transparent;
+  padding: 0;
 }
 .Link--login {
   color: green;
