@@ -93,4 +93,17 @@ ul li {
 .Link--logout {
   color: red;
 }
+.Crib .Link {
+  margin: 0;
+}
+.Crib__BodyContent {
+  margin-top: 25px;
+  padding-top: 25px;
+}
+.Crib__BodyContent:nth-child(even) {
+  background: #ebebeb;
+}
+.Crib__BodyContentComment {
+  padding-left: 25px;
+}
 /*# sourceMappingURL=main.css.map */

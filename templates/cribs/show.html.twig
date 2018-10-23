@@ -4,21 +4,25 @@
     <div class="Crib">
         <header class="Crib__Header">
             {% block heading %}<h1>{{ crib.title }}</h1>{% endblock %}
-            <h2>created: {{ crib.date | date("m.d.Y") }}</h2>
+            <h3>created: {{ crib.date | date("m.d.Y") }}</h3>
             <h3>edited: {{ crib.editDate | date("m.d.Y") }}</h3>
-            <a href="{{ path('index') }}">back</a>
+            <a class="Link" href="{{ path('index') }}">back</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('edit', {'id': crib.id}) }}" class="Link">edit</a>
+                <a href="{{ path('delete', {'id': crib.id}) }}" class="Link">delete</a>
+            {% endif %}
         </header>
         <div class="Crib__Body">
-            <div class="Crib__BodyContent">
-                {% for cribContent in crib.cribContent %}
+            {% for cribContent in crib.cribContent %}
+                <div class="Crib__BodyContent">
                     <div class="Crib__BodyContentComment">
                         <p>{{ cribContent.comment }}</p>
                     </div>
                     <div class="Crib__BodyContentCode">
                         <pre><code class="line-numbers language-{{ cribContent.language }}">{{ cribContent.code }}</code></pre>
                     </div>
-                {% endfor %}
-            </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
