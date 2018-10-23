@@ -7,7 +7,9 @@
         {{ form_widget(searchForm) }}
         {{ form_end(searchForm) }}
     </div>
-    <a href="{{ path('new') }}" class="Button Button--new">new</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('new') }}" class="Button Button--new">new</a>
+    {% endif %}
     <table class="CribIndex">
         <tr class="CribIndex__Header">
             <th>
@@ -60,10 +62,18 @@
                 </td>
                 <td class="CribIndex__Menu">
                     <a href="{{ path('show', {'id': crib.id}) }}">show</a>
-                    <a href="{{ path('edit', {'id': crib.id}) }}">edit</a>
-                    <a href="{{ path('delete', {'id': crib.id}) }}">delete</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('edit', {'id': crib.id}) }}">edit</a>
+                        <a href="{{ path('delete', {'id': crib.id}) }}">delete</a>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}
     </table>
+    {% if not is_granted('ROLE_ADMIN') %}
+        <a class="Link Link--login" href="{{ path('app_login') }}">login</a>
+    {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <a class="Link Link--logout" href="{{ path('app_logout') }}">logout</a>
+    {% endif %}
 {% endblock %}

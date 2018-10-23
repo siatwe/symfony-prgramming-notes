@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Entity\Crib;
 use App\Entity\CribContent;
 use App\Form\Type\CribType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -16,12 +17,21 @@ class CribController extends AbstractController
 {
 
     /**
+     * @Route("/", name="home")
+     */
+    public function home()
+    {
+        return $this->redirectToRoute('index');
+    }
+
+
+    /**
      * @Route("/new", name="new")
      * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * Creates new crib.
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request)
     {
@@ -61,7 +71,7 @@ class CribController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * Creates new crib.
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Crib $crib)
     {
@@ -88,14 +98,14 @@ class CribController extends AbstractController
 
 
     /**
-     * @Route("/{field}-{direction}", name="index")
+     * @Route("/index/{field}-{direction}", name="index")
      * @param $field
      *
      * @param $direction
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index($field = null, $direction = null, Request $request)
+    public function index($field = 'id', $direction = 'ASC', Request $request)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
 
@@ -116,7 +126,7 @@ class CribController extends AbstractController
             $cribs = $cribRepository->findBy(
                 [],
                 [
-                    $field ? $field : 'id' => $direction ? $direction : 'ASC',
+                    $field => $direction,
                 ]
             );
         }
@@ -156,6 +166,8 @@ class CribController extends AbstractController
      * @param $id
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     *
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete($id)
     {

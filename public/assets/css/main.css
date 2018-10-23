@@ -9,6 +9,7 @@ h2,
 h3 {
   display: block;
   text-align: center;
+  color: black;
 }
 h1 {
   font-size: 35px;
@@ -80,5 +81,16 @@ ul li {
 }
 .Form textarea {
   height: 300px;
+}
+.Link {
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+}
+.Link--login {
+  color: green;
+}
+.Link--logout {
+  color: red;
 }
 /*# sourceMappingURL=main.css.map */
