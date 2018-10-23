@@ -4,12 +4,16 @@
     <div class="Crib">
         <header class="Crib__Header">
             {% block heading %}<h1>{{ crib.title }}</h1>{% endblock %}
-            <h3>created: {{ crib.date | date("m.d.Y") }}</h3>
-            <h3>edited: {{ crib.editDate | date("m.d.Y") }}</h3>
+            <h3>created: {{ crib.date | date("d.m.Y h:i") }}</h3>
+            {% if crib.editDate %}
+                <h3>edited: {{ crib.editDate | date("d.m.Y h:i") }}</h3>
+            {% else %}
+                <h3>edited: never</h3>
+            {% endif %}
             <a class="Link" href="{{ path('index') }}">back</a>
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('edit', {'id': crib.id}) }}" class="Link">edit</a>
-                <a href="{{ path('delete', {'id': crib.id}) }}" class="Link">delete</a>
+                <a href="{{ path('edit', {'id': crib.id}) }}" class="Link Link--edit">edit</a>
+                <a href="{{ path('delete', {'id': crib.id}) }}" class="Link Link--delete">delete</a>
             {% endif %}
         </header>
         <div class="Crib__Body">

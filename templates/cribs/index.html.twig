@@ -63,8 +63,8 @@
                 <td class="CribIndex__Menu">
                     <a href="{{ path('show', {'id': crib.id}) }}">show</a>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('edit', {'id': crib.id}) }}">edit</a>
-                        <a href="{{ path('delete', {'id': crib.id}) }}">delete</a>
+                        <a href="{{ path('edit', {'id': crib.id}) }}" class="Link Link--edit">edit</a>
+                        <a href="{{ path('delete', {'id': crib.id}) }}" class="Link Link--delete">delete</a>
                     {% endif %}
                 </td>
             </tr>

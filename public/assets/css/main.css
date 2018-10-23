@@ -26,6 +26,10 @@ ul li {
   display: table;
   width: 100%;
 }
+.CribIndex .Link {
+  display: inline-block;
+  margin: 0;
+}
 .CribIndex tr:nth-child(even) {
   background: #ebebeb;
 }
@@ -90,8 +94,12 @@ ul li {
 .Link--login {
   color: green;
 }
-.Link--logout {
+.Link--logout,
+.Link--delete {
   color: red;
+}
+.Link--edit {
+  color: blue;
 }
 .Crib .Link {
   margin: 0;
