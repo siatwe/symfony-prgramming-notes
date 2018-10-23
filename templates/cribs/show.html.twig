@@ -11,11 +11,11 @@
         <div class="Crib__Body">
             <div class="Crib__BodyContent">
                 {% for cribContent in crib.cribContent %}
-                    <div class="Crib__BodyContentCode">
-                        <pre><code class="line-numbers language-{{ cribContent.language }}">{{ cribContent.code }}</code></pre>
-                    </div>
                     <div class="Crib__BodyContentComment">
                         <p>{{ cribContent.comment }}</p>
+                    </div>
+                    <div class="Crib__BodyContentCode">
+                        <pre><code class="line-numbers language-{{ cribContent.language }}">{{ cribContent.code }}</code></pre>
                     </div>
                 {% endfor %}
             </div>

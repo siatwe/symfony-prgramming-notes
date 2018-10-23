@@ -14,8 +14,8 @@ class CribContentType extends AbstractType
     {
         $builder
             ->add('language')
-            ->add('code')
             ->add('comment')
+            ->add('code')
         ;
     }
 
