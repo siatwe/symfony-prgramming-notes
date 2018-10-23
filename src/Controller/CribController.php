@@ -116,7 +116,7 @@ class CribController extends AbstractController
             $cribs = $cribRepository->findBy(
                 [],
                 [
-                    $field ? $field : 'date' => $direction ? $direction : 'DESC',
+                    $field ? $field : 'id' => $direction ? $direction : 'ASC',
                 ]
             );
         }
