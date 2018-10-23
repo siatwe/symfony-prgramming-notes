@@ -14,8 +14,8 @@
             {% for cribContent in form.cribContent %}
                 <li>
                     {{ form_row(cribContent.language) }}
-                    {{ form_row(cribContent.code) }}
                     {{ form_row(cribContent.comment) }}
+                    {{ form_row(cribContent.code) }}
                 </li>
             {% endfor %}
         </ul>
