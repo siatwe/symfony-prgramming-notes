@@ -3,7 +3,7 @@
 {% block body %}
     {% block heading %}<h1>New</h1>{% endblock %}
     <div class="Form">
-        <a href="{{ path('index') }}">back</a>
+        <a class="Link" href="{{ path('index') }}">back</a>
         {{ form_start(form) }}
         {{ form_row(form.title) }}
         {{ form_row(form.project) }}
@@ -20,5 +20,6 @@
             {% endfor %}
         </ul>
         {{ form_end(form) }}
+        <a class="Link" href="{{ path('index') }}">back</a>
     </div>
 {% endblock %}
