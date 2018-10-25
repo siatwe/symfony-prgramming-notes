@@ -32,7 +32,7 @@ class CribController extends AbstractController
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index($field = 'id', $direction = 'ASC', Request $request)
+    public function index($field = 'id', $direction = 'DESC', Request $request)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
 
