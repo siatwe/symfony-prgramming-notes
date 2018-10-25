@@ -144,7 +144,7 @@ class CribController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('show', ['id' => $crib->getId()]);
         }
 
         return $this->render(
