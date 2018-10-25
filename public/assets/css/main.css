@@ -117,4 +117,9 @@ ul li {
 .Crib__BodyContentComment {
   padding-left: 25px;
 }
+.Footer {
+  display: block;
+  width: 100%;
+  padding-bottom: 150px;
+}
 /*# sourceMappingURL=main.css.map */

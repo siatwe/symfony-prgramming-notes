@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}cribs{% endblock %}
 {% block body %}
-    <a href="{{ path('index') }}"><h1>cribs</h1></a>
+    <a href="{{ path('index') }}"><h1>CRIBS</h1></a>
     <div class="SearchForm">
         {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -45,7 +45,7 @@
         {% for crib in cribs %}
             <tr>
                 <td>
-                    <a href="{{ path('show', {'id': crib.id}) }}">{{ crib.title }}</a>
+                    <a href="{{ path('show', {'id': crib.id}) }}">{{ crib.title|upper }}</a>
                 </td>
                 <td>
                     {{ crib.project }}
