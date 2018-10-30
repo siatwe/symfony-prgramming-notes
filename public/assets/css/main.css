@@ -114,6 +114,11 @@ ul li {
 .Crib__BodyContent:nth-child(even) {
   background: #ebebeb;
 }
+.Crib__BodyContent:nth-child(odd) {
+  border-left: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+}
 .Crib__BodyContentComment {
   padding-left: 25px;
 }
