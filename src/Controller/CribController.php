@@ -95,7 +95,7 @@ class CribController extends AbstractController
         }
 
         return $this->render(
-            'cribs/new.html.twig',
+            'cribs/new_edit.html.twig',
             [
                 'form' => $form->createView(),
             ]
@@ -148,7 +148,7 @@ class CribController extends AbstractController
         }
 
         return $this->render(
-            'cribs/new.html.twig',
+            'cribs/new_edit.html.twig',
             [
                 'form' => $form->createView(),
             ]
