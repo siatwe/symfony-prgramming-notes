@@ -13,6 +13,7 @@ class CribType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('submit_top', SubmitType::class, ['label' => 'save'])
             ->add('title')
             ->add('project')
             ->add('date')
