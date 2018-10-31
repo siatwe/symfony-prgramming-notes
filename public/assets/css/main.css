@@ -75,10 +75,19 @@ ul li {
   margin-bottom: 60px;
 }
 .SearchForm .form-group {
-  display: inline-block;
+  text-align: center;
 }
 .SearchForm .form-group input {
   border-radius: 0;
+}
+.SearchForm .form-group input[type="text"] {
+  width: 33%;
+  display: inline-block;
+}
+.SearchForm .form-group button[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 .SearchForm .form-group .Link {
   margin: 0;
