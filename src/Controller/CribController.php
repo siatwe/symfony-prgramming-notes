@@ -27,12 +27,8 @@ class CribController extends AbstractController
 
     /**
      * @Route("/index/{field}-{direction}", name="index")
-     * @param $field
-     * @param $direction
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index($field = 'id', $direction = 'DESC', Request $request)
+    public function index(Request $request, $field = 'id', $direction = 'DESC')
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
 
@@ -69,10 +65,6 @@ class CribController extends AbstractController
 
     /**
      * @Route("/new", name="new")
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
      * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request)
@@ -105,9 +97,6 @@ class CribController extends AbstractController
 
     /**
      * @Route("/show/{id}", name="show")
-     * @param $id
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function show($id)
     {
@@ -125,11 +114,6 @@ class CribController extends AbstractController
 
     /**
      * @Route("/edit/{id}", name="edit")
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \App\Entity\Crib                          $crib
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
      * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Crib $crib)
@@ -158,10 +142,6 @@ class CribController extends AbstractController
 
     /**
      * @Route("/delete/{id}", name="delete")
-     * @param $id
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
      * @IsGranted("ROLE_ADMIN")
      */
     public function delete($id, Request $request)
