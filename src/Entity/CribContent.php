@@ -17,17 +17,17 @@ class CribContent
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $language;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $code;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $comment;
 
@@ -36,15 +36,18 @@ class CribContent
      */
     private $crib;
 
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
+
     public function getLanguage(): ?string
     {
         return $this->language;
     }
+
 
     public function setLanguage(string $language): self
     {
@@ -53,10 +56,12 @@ class CribContent
         return $this;
     }
 
+
     public function getCode(): ?string
     {
         return $this->code;
     }
+
 
     public function setCode(string $code): self
     {
@@ -65,10 +70,12 @@ class CribContent
         return $this;
     }
 
+
     public function getComment(): ?string
     {
         return $this->comment;
     }
+
 
     public function setComment(string $comment): self
     {
@@ -77,10 +84,12 @@ class CribContent
         return $this;
     }
 
+
     public function getCrib(): ?Crib
     {
         return $this->crib;
     }
+
 
     public function setCrib(?Crib $crib): self
     {

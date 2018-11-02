@@ -13,9 +13,9 @@ class CribContentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('language')
-            ->add('comment')
-            ->add('code')
+            ->add('language', null, ['required' => false])
+            ->add('comment', null, ['required' => false])
+            ->add('code', null, ['required' => false])
         ;
     }
 

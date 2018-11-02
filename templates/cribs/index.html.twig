@@ -51,11 +51,11 @@
                     {{ crib.project }}
                 </td>
                 <td>
-                    {{ crib.date | date("d.m.Y h:i") }}
+                    {{ crib.date | date("d.m.Y H:i") }}
                 </td>
                 <td>
                     {% if crib.editDate %}
-                        {{ crib.editDate | date("d.m.Y h:i") }}
+                        {{ crib.editDate | date("d.m.Y H:i") }}
                     {% else %}
                         never
                     {% endif %}

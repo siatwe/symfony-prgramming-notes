@@ -19,12 +19,16 @@
         <div class="Crib__Body">
             {% for cribContent in crib.cribContent %}
                 <div class="Crib__BodyContent">
-                    <div class="Crib__BodyContentComment">
-                        <p>{{ cribContent.comment|nl2br }}</p>
-                    </div>
-                    <div class="Crib__BodyContentCode">
-                        <pre><code class="line-numbers language-{{ cribContent.language }}">{{ cribContent.code }}</code></pre>
-                    </div>
+                    {% if cribContent.comment %}
+                        <div class="Crib__BodyContentComment">
+                            <p>{{ cribContent.comment|nl2br }}</p>
+                        </div>
+                    {% endif %}
+                    {% if cribContent.code %}
+                        <div class="Crib__BodyContentCode">
+                            <pre><code class="line-numbers language-{{ cribContent.language }}">{{ cribContent.code }}</code></pre>
+                        </div>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>

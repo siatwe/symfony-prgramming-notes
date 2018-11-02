@@ -26,7 +26,7 @@ class CribController extends AbstractController
 
 
     /**
-     * @Route("/index/{field}-{direction}", name="index")
+     * @Route("/index/{field}/{direction}", name="index")
      */
     public function index(Request $request, $field = 'id', $direction = 'DESC')
     {
