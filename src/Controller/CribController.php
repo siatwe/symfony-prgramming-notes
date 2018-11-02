@@ -28,7 +28,7 @@ class CribController extends AbstractController
     /**
      * @Route("/index/{field}/{direction}", name="index")
      */
-    public function index(Request $request, $field = 'id', $direction = 'DESC')
+    public function index(Request $request, $field = 'date', $direction = 'DESC')
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
 
@@ -41,7 +41,7 @@ class CribController extends AbstractController
         ;
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $searchString = $form->getData()['searchField'];
             $cribs        = $cribRepository->findBySearchString($searchString);
         } else {

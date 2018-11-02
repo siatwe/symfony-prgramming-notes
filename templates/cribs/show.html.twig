@@ -4,9 +4,9 @@
     <div class="Crib">
         <header class="Crib__Header">
             {% block heading %}<h1>{{ crib.title|upper }}</h1>{% endblock %}
-            <h3>created: {{ crib.date | date("d.m.Y h:i") }}</h3>
+            <h3>created: {{ crib.date | date("d.m.Y H:i") }}</h3>
             {% if crib.editDate %}
-                <h3>edited: {{ crib.editDate | date("d.m.Y h:i") }}</h3>
+                <h3>edited: {{ crib.editDate | date("d.m.Y H:i") }}</h3>
             {% else %}
                 <h3>edited: never</h3>
             {% endif %}
