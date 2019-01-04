@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Crib;
 use App\Entity\CribContent;
 use App\Form\Type\CribType;
@@ -24,26 +23,43 @@ class CribController extends AbstractController
         return $this->redirectToRoute('index');
     }
 
-
     /**
      * @Route("/index/{field}/{direction}", name="index")
+     * @param Request $request
+     * @param string $field
+     * @param string $direction
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(Request $request, $field = 'date', $direction = 'DESC')
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
 
-        $form =
-            $this
-                ->createFormBuilder()
-                ->add('searchField', TextType::class, ['label' => false])
-                ->add('submit', SubmitType::class, ['label' => 'search', 'attr' => ['class' => 'Link Link--edit']])
-                ->getForm()
-        ;
+        $form = $this
+            ->createFormBuilder()
+            ->add(
+                'searchField',
+                TextType::class,
+                [
+                    'label' => false,
+                ]
+            )
+            ->add(
+                'submit',
+                SubmitType::class,
+                [
+                    'label' => 'search',
+                    'attr' =>
+                    [
+                        'class' => 'Link Link--edit',
+                    ],
+                ]
+            )
+            ->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $searchString = $form->getData()['searchField'];
-            $cribs        = $cribRepository->findBySearchString($searchString);
+            $cribs = $cribRepository->findBySearchString($searchString);
         } else {
             $cribs = $cribRepository->findBy(
                 [],
@@ -57,27 +73,23 @@ class CribController extends AbstractController
             'cribs/index.html.twig',
             [
                 'cribs' => $cribs,
-                'form'  => $form->createView(),
+                'form' => $form->createView(),
             ]
         );
     }
-
 
     /**
      * @Route("/new", name="new")
      * @IsGranted("ROLE_ADMIN")
      */
-    public function new(Request $request)
-    {
-        $crib = new Crib();
-
+    function new (Request $request) {
         $cribContent = new CribContent();
 
+        $crib = new Crib();
         $crib->addCribContent($cribContent);
 
         $form = $this->createForm(CribType::class, $crib);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($crib);
@@ -94,14 +106,13 @@ class CribController extends AbstractController
         );
     }
 
-
     /**
      * @Route("/show/{id}", name="show")
      */
     public function show($id)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
-        $crib           = $cribRepository->find($id);
+        $crib = $cribRepository->find($id);
 
         return $this->render(
             'cribs/show.html.twig',
@@ -111,17 +122,15 @@ class CribController extends AbstractController
         );
     }
 
-
     /**
      * @Route("/edit/{id}", name="edit")
      * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Crib $crib)
     {
-        $form = $this->createForm(CribType::class, $crib);
-
         $crib->setEditDate(new \DateTime('now'));
 
+        $form = $this->createForm(CribType::class, $crib);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -139,7 +148,6 @@ class CribController extends AbstractController
         );
     }
 
-
     /**
      * @Route("/delete/{id}", name="delete")
      * @IsGranted("ROLE_ADMIN")
@@ -147,14 +155,22 @@ class CribController extends AbstractController
     public function delete($id, Request $request)
     {
         $cribRepository = $this->getDoctrine()->getRepository(Crib::class);
-        $crib           = $cribRepository->find($id);
+        $crib = $cribRepository->find($id);
 
         $form = $this
             ->createFormBuilder()
-            ->add('submit', SubmitType::class, ['label' => 'Delete', 'attr' => ['class' => 'Link Link--delete']])
-            ->getForm()
-        ;
-
+            ->add(
+                'submit',
+                SubmitType::class,
+                [
+                    'label' => 'Delete',
+                    'attr' =>
+                    [
+                        'class' => 'Link Link--delete',
+                    ],
+                ]
+            )
+            ->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

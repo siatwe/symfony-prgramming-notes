@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block title %}cribs{% endblock %}
 {% block body %}
-    {% block heading %}<h1>NEW/EDIT</h1>{% endblock %}
+    {% block heading %}
+        <h1>NEW/EDIT</h1>
+    {% endblock %}
     <div class="Form">
         <a class="Link" href="{{ path('index') }}">back</a>
         {{ form_start(form) }}
@@ -9,7 +11,6 @@
         {{ form_row(form.title) }}
         {{ form_row(form.project) }}
         {{ form_row(form.date) }}
-
         <h3>Content</h3>
         <ul class="cribContents" data-prototype="{{ form_widget(form.cribContent.vars.prototype)|e('html_attr') }}">
             {% for cribContent in form.cribContent %}

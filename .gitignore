@@ -1,6 +1,4 @@
-###> phpstorm/.idea ###
-/.idea/*
-
+/.vscode
 ###> symfony/framework-bundle ###
 /.env
 /public/bundles/
@@ -15,5 +13,3 @@
 
 ###> symfony/web-server-bundle ###
 /.web-server-pid
-###< symfony/web-server-bundle ###
-Würde .idea/ löschen
