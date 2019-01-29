@@ -3,11 +3,16 @@
 {% block body %}
     <div class="Crib">
         <header class="Crib__Header">
-            {% block heading %}<h1>{{ crib.title|upper }}</h1>{% endblock %}
-            <h3>created: {{ crib.date | date("d.m.Y H:i") }}</h3>
+            {% block heading %}
+                <h1>
+                    {{ crib.title|upper }}</h1>
+            {% endblock %}
+            <h3>created:
+                {{ crib.date | date("d.m.Y H:i") }}</h3>
             {% if crib.editDate %}
-                <h3>edited: {{ crib.editDate | date("d.m.Y H:i") }}</h3>
-            {% else %}
+                <h3>edited:
+                    {{ crib.editDate | date("d.m.Y H:i") }}</h3>
+                {% else %}
                 <h3>edited: never</h3>
             {% endif %}
             <a class="Link" href="{{ path('index') }}">back</a>
@@ -21,10 +26,14 @@
                 <div class="Crib__BodyContent">
                     {% if cribContent.comment %}
                         <div class="Crib__BodyContentComment">
-                            <p>{{ cribContent.comment|nl2br }}</p>
+                            <p>
+                                {{ cribContent.comment|nl2br }}</p>
                         </div>
                     {% endif %}
                     {% if cribContent.code %}
+                        <div class="Crib__BodyContentLanguage">
+                            {{ cribContent.language }}
+                        </div>
                         <div class="Crib__BodyContentCode">
                             <pre><code class="line-numbers language-{{ cribContent.language }}">{{ cribContent.code }}</code></pre>
                         </div>
@@ -34,4 +43,3 @@
         </div>
     </div>
 {% endblock %}
-
