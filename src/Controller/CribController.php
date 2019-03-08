@@ -49,9 +49,9 @@ class CribController extends AbstractController
                 [
                     'label' => 'search',
                     'attr' =>
-                    [
-                        'class' => 'Link Link--edit',
-                    ],
+                        [
+                            'class' => 'Link Link--edit',
+                        ],
                 ]
             )
             ->getForm();
@@ -82,7 +82,8 @@ class CribController extends AbstractController
      * @Route("/new", name="new")
      * @IsGranted("ROLE_ADMIN")
      */
-    function new (Request $request) {
+    function new(Request $request)
+    {
         $cribContent = new CribContent();
 
         $crib = new Crib();
@@ -108,6 +109,8 @@ class CribController extends AbstractController
 
     /**
      * @Route("/show/{id}", name="show")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function show($id)
     {
@@ -165,9 +168,9 @@ class CribController extends AbstractController
                 [
                     'label' => 'Delete',
                     'attr' =>
-                    [
-                        'class' => 'Link Link--delete',
-                    ],
+                        [
+                            'class' => 'Link Link--delete',
+                        ],
                 ]
             )
             ->getForm();
