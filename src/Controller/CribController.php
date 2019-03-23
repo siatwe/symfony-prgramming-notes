@@ -5,12 +5,12 @@ namespace App\Controller;
 use App\Entity\Crib;
 use App\Entity\CribContent;
 use App\Form\Type\CribType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CribController extends AbstractController
 {
@@ -82,7 +82,7 @@ class CribController extends AbstractController
      * @Route("/new", name="new")
      * @IsGranted("ROLE_ADMIN")
      */
-    function new(Request $request)
+    public function new(Request $request)
     {
         $cribContent = new CribContent();
 

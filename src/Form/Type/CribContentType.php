@@ -2,7 +2,6 @@
 
 namespace App\Form\Type;
 
-
 use App\Entity\CribContent;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,5 +27,4 @@ class CribContentType extends AbstractType
             ]
         );
     }
-
 }
